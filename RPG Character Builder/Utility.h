@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-enum RaceTitle
+enum class RaceTitle
 {
 	NONE,
 	HUMAN,
@@ -11,7 +11,7 @@ enum RaceTitle
 	DWARF
 };
 
-enum ClassTitle {
+enum class ClassTitle {
 	NONE,
 	FIGHTER,
 	WIZARD,
@@ -37,7 +37,30 @@ struct Item {
 	Item(std::string n, std::string d) :
 		name{ n },
 		desc{ d }{}
+
+
+	bool operator==(const Item& other) const {
+		return (name == other.name && desc == other.desc);
+	}
 };
+
+
+
+//custom hash function template specialization
+namespace std {
+
+	template<>
+	struct std::hash<Item> {
+
+		size_t operator()(const Item& key) const {
+			return std::hash<std::string>()(key.name);
+		}
+	};
+
+}
+
+
+
 
 struct Attribs {
 
@@ -71,3 +94,5 @@ struct Attribs {
 
 int diceRoller(const Dice& d);
 std::string raceConvert(RaceTitle rtEnum);
+
+

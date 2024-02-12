@@ -19,13 +19,13 @@ std::string raceConvert(RaceTitle rtEnum) {
 
 	switch (rtEnum)
 	{
-	case NONE:
+	case RaceTitle::NONE:
 		return "No Assigned Class";
-	case HUMAN:
+	case RaceTitle::HUMAN:
 		return "Human";
-	case ELF:
+	case RaceTitle::ELF:
 		return "Elf";
-	case DWARF:
+	case RaceTitle::DWARF:
 		return "Dwarf";
 	default:
 		return "Not Recognised";

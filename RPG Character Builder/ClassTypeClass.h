@@ -24,3 +24,17 @@ class Fighter : public CharClass {
 	Attribs updateAttribs();
 	virtual ClassTitle setTitle();
 };
+
+class Wizard : public CharClass {
+
+	std::vector<Item> updateInventory();
+	Attribs updateAttribs();
+	virtual ClassTitle setTitle();
+};
+
+class Theif : public CharClass {
+
+	std::vector<Item> updateInventory();
+	Attribs updateAttribs();
+	virtual ClassTitle setTitle();
+};

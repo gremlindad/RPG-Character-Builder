@@ -26,13 +26,15 @@ void Character::setRace(Race* r) {
 
 void Character::setClass(CharClass* cc) {
 
+	//update attributes
 	attributes = attributes + cc->updateAttribs();
 
+	
 	//fill inventory
 	for (auto& it : cc->updateInventory()) {
-		inventory[it]++;
+		if (inventory.find(it) == inventory.end())inventory.insert({it, 1});
+		else { inventory[it]++; }
 	}
-
 	ct = cc->setTitle();
 }
 

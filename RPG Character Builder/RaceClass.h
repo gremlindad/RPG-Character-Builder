@@ -4,23 +4,28 @@
 class Race {
 
 public:
-	virtual Attribs raceTraits() = 0;
+	virtual Attribs updateAttribs() = 0;
+	virtual RaceTitle setTitle() = 0;
 };
 
 
 class Human : public Race {
 public:
-	Attribs raceTraits();
+	Attribs updateAttribs();
+	RaceTitle setTitle();
 };
 
 class Elf : public Race {
 public:
-	Attribs raceTraits();
+	Attribs updateAttribs();
+	RaceTitle setTitle();
+
 };
 
 class Dwarf : public Race {
 public:
-	Attribs raceTraits();
+	Attribs updateAttribs();
+	RaceTitle setTitle();
 };
 
 std::string raceConvert(RaceTitle);

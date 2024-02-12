@@ -2,6 +2,7 @@
 #include "Utility.h"
 #include "RaceClass.h"
 #include "ClassTypeClass.h"
+#include <unordered_map>
 
 
 
@@ -16,7 +17,7 @@ public:
 	
 	void setDetails(const std::vector<std::string>& deets);
 	void setRace(Race* race);
-	//void setClass(CharClass* cla);
+	void setClass(CharClass* cla);
 	//void setAbilityScores();
 	//void addToBag(Item itm);
 	//void setBio();
@@ -35,10 +36,12 @@ private:
 
 	Attribs attributes;
 
-	RaceTitle rt = NONE;
+	RaceTitle rt = RaceTitle::NONE;
+	ClassTitle ct = ClassTitle::NONE;
 	//int ac{};
 	//std::string bio{};
-	std::vector<Item> inventory;
+	//std::vector<Item> inventory;
+	std::unordered_map<Item, int> inventory;
 
 };
 

@@ -1,54 +1,34 @@
 #include "RaceClass.h"
 
 
-Attribs Human::raceTraits() {
+Attribs Human::updateAttribs() {
 	
-	Attribs attrib;
-
-	attrib.str = 1;
-	attrib.dex = 1;
-	attrib.con = 1;
-	attrib.intel = 1;
-	attrib.wis = 1;
-	attrib.cha = 1;
-
-	attrib.rt = HUMAN;
-
-
-	return attrib;
+	return Attribs{ 1,1,1,1,1,1 };
 }
 
-Attribs Elf::raceTraits() {
-
-	Attribs attrib;
-
-	attrib.str = 0;
-	attrib.dex = 2;
-	attrib.con = 0;
-	attrib.intel = 2;
-	attrib.wis = 2;
-	attrib.cha = 0;
-
-	attrib.rt = ELF;
-
-	return attrib;
-}
-
-Attribs Dwarf::raceTraits() {
-
-	Attribs attrib;
-
-	attrib.str = 3;
-	attrib.dex = 0;
-	attrib.con = 3;
-	attrib.intel = 0;
-	attrib.wis = 0;
-	attrib.cha = 0;
-
-	attrib.rt = DWARF;
-
-	return attrib;
+RaceTitle Human::setTitle() {
+	return RaceTitle::HUMAN;
 }
 
 
+
+
+Attribs Elf::updateAttribs() {
+	return Attribs{ 0,2,0,2,2,0 };
+}
+
+RaceTitle Elf::setTitle() {
+	return RaceTitle::ELF;
+}
+
+
+
+
+Attribs Dwarf::updateAttribs() {
+	return Attribs{ 3,0,3,0,0,0 };
+}
+
+RaceTitle Dwarf::setTitle() {
+	return RaceTitle::DWARF;
+}
 

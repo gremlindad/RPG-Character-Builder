@@ -18,14 +18,23 @@ void Character::setDetails(const std::vector<std::string>& deets)
 void Character::setRace(Race* r) {
 
 	//polymorphically update character attributes
-	Attribs att = r->raceTraits();
-	attributes = attributes + att;
-	rt = att.rt;
+	attributes = attributes + r->updateAttribs();
+	rt = r->setTitle();
 }
 
 
 
+void Character::setClass(CharClass* cc) {
 
+	attributes = attributes + cc->updateAttribs();
+
+	//fill inventory
+	for (auto& it : cc->updateInventory()) {
+		inventory[it]++;
+	}
+
+	ct = cc->setTitle();
+}
 
 
 
@@ -75,7 +84,7 @@ std::string Character::getInventory() const {
 	if (inventory.size() == 0)return"";
 
 	for (auto& it : inventory) {
-		inventoryString += it.name + ": " + it.desc + "\n";
+		inventoryString += it.first.name + ": " + it.first.desc + "\n";
 	}
 	inventoryString += '\n';
 	return inventoryString;

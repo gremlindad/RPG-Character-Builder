@@ -11,6 +11,13 @@ enum RaceTitle
 	DWARF
 };
 
+enum ClassTitle {
+	NONE,
+	FIGHTER,
+	WIZARD,
+	THEIF
+};
+
 
 
 enum Dice
@@ -26,25 +33,25 @@ enum Dice
 struct Item {
 	std::string name;
 	std::string desc;
-	int amt;
 
-	Item(std::string n, std::string d, int a) :
+	Item(std::string n, std::string d) :
 		name{ n },
-		desc{ d },
-		amt{a}{}
+		desc{ d }{}
 };
 
 struct Attribs {
+
+	Attribs() {};
+	Attribs(int s, int d, int co, int i, int w, int ch)
+		:str{ s }, dex{ d }, con{ co }, intel{ i }, wis{ w }, cha{ch}
+	{};
+	
 	int str{};
 	int dex{};
 	int con{};
 	int cha{};
 	int intel{};
 	int wis{};
-
-	RaceTitle rt = NONE;
-
-	Attribs() {};
 
 
 	Attribs operator+(const Attribs& b) {

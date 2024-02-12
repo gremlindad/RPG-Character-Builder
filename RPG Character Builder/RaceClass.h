@@ -28,4 +28,3 @@ public:
 	RaceTitle setTitle();
 };
 
-std::string raceConvert(RaceTitle);

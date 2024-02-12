@@ -20,15 +20,7 @@ enum class ClassTitle {
 
 
 
-enum Dice
-{
-	D4 = 4,
-	D6 = 6,
-	D8 = 8,
-	D10 = 10,
-	D12 = 12,
-	D20 = 20
-};
+
 
 struct Item {
 	std::string name;
@@ -92,7 +84,19 @@ struct Attribs {
 };
 
 
+std::string raceConvert(const RaceTitle& rtEnum);
+std::string classConvert(const ClassTitle& ctEnum);
+
+
+enum Dice
+{
+	D4 = 4,
+	D6 = 6,
+	D8 = 8,
+	D10 = 10,
+	D12 = 12,
+	D20 = 20
+};
+
 int diceRoller(const Dice& d);
-std::string raceConvert(RaceTitle rtEnum);
-
-
+Attribs randomAttribsRoller();

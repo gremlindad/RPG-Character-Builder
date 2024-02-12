@@ -15,6 +15,7 @@ int main() {
 	c.setDetails(deets);
 	c.setRace(h.get());
 	c.setClass(f.get());
+	c.setAbilityScores();
 
 
 	std::cout << c.getDeets()<<c.getAttributes()<<c.getInventory();

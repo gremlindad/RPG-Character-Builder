@@ -39,7 +39,9 @@ void Character::setClass(CharClass* cc) {
 }
 
 
-
+void Character::setAbilityScores() {
+	attributes = attributes + randomAttribsRoller();
+}
 
 
 
@@ -59,7 +61,8 @@ std::string Character::getDeets() const {
 	deetString += "\nGender:\t\t" + gender;
 	deetString += "\nHeight:\t\t" + height;
 	deetString += "\nAlignment:\t" + alignment;
-	deetString += "\nRace:\t\t" + raceConvert(rt)+"\n\n";
+	deetString += "\nRace:\t\t" + raceConvert(rt);
+	deetString += "\nClass:\t\t" + classConvert(ct) + "\n\n";
 
 	return deetString;
 }
@@ -86,16 +89,11 @@ std::string Character::getInventory() const {
 	if (inventory.size() == 0)return"";
 
 	for (auto& it : inventory) {
-		inventoryString += it.first.name + ": " + it.first.desc + "\n";
+		inventoryString += it.first.name + ": " + it.first.desc + " \t* " + std::to_string(it.second) + "\n";
 	}
 	inventoryString += '\n';
 	return inventoryString;
 }
 
 
-
-
-
-
-//UTILITY
 

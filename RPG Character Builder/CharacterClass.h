@@ -18,7 +18,7 @@ public:
 	void setDetails(const std::vector<std::string>& deets);
 	void setRace(Race* race);
 	void setClass(CharClass* cla);
-	void setAbilityScores(const Attribs& att);
+	void setAbilityScores();
 	//void addToBag(Item itm);
 	//void setBio();
 
